@@ -47,5 +47,16 @@ router.get('/trending-post',(req,res)=>{
     })
     .catch(err=>{console.log(err)
     })
+
+});
+
+router.get('/fresh-stories',(req,res)=>{
+    Post.find().sort({_id:-1}).limit(5)
+    .populate('category','_id name')
+    .then((posts) => {
+        res.json({posts});
+    })
+    .catch(err=>{console.log(err)
+    })
 });
 module.exports = router
