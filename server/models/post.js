@@ -27,6 +27,8 @@ const postSchema = mongoose.Schema({
         type: ObjectId,
         ref:'Category'
     },
-});
+},{timestamps:true});
 
+
+postSchema.index({'$**': 'text'});
 mongoose.model("Post", postSchema);

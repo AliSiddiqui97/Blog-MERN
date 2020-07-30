@@ -54,5 +54,14 @@ router.get("/comments/post/:postId" ,(req,res)=>{
     })
 });
 
+router.get('/comment-number',(req,res)=>{
+    Comment.count({})
+    .then((commentNumber) => {
+        res.json({commentNumber});
+    })
+    .catch(err=>{console.log(err)
+    })
+});
+
 
 module.exports = router

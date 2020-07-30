@@ -70,7 +70,7 @@ router.post('/new-post',(req,res)=>{
    if ( !title || !description || !imgUrl || !category ){
        res.json(  {err:'All Fields are required'})
    }
-   Category.findOne({_id : category})
+   Category.findOne({_id : category.id})
     
     .then((category) => {
         const post = new Post({
@@ -88,6 +88,21 @@ router.post('/new-post',(req,res)=>{
     .catch(err=>{console.log(err)
     })
 });
+
+router.get('/search/:str',(req,res)=>{
+    const {str} = req.params;
+    if(!str){
+        res.json({err:'Nothing to search'})
+    }
+    Post.find({$text: {$search:str}})
+     
+     .then((post) => {
+        res.json({msg:"Found!",post})
+     })
+     .catch(err=>{console.log(err)
+     })
+ });
+ 
 
 
 

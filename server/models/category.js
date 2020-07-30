@@ -6,6 +6,6 @@ const categorySchema = mongoose.Schema({
         required: true
     },
     
-});
+},{timestamps:true});
 
 mongoose.model("Category", categorySchema);

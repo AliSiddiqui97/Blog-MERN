@@ -6,7 +6,7 @@ const PORT = 6000;
 
 //connection to mongo
 
-mongoose.connect(MONGOURI,{ useUnifiedTopology: true,useNewUrlParser: true } );
+mongoose.connect(MONGOURI,{ useUnifiedTopology: true,useNewUrlParser: true,useCreateIndex: true } );
 
 mongoose.connection.on('connected',()=>{
     console.log('Connected')
