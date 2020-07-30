@@ -14,6 +14,16 @@ router.get('/categories',(req,res)=>{
 });
 
 
+router.get('/category-number',(req,res)=>{
+    Category.count({})
+    .then((categories) => {
+        res.json({categories});
+    })
+    .catch(err=>{console.log(err)
+    })
+});
+
+
 
 router.post('/new-category',(req,res)=>{
     const {name} = req.body;

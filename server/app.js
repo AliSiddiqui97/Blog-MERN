@@ -21,10 +21,12 @@ mongoose.connection.on('error',(error)=>{
 //Models
 require('./models/post')
 require('./models/category')
+require('./models/comment')
 //Routes
 app.use(express.json());
 app.use(require('./routes/post'));
 app.use(require('./routes/category'));
+app.use(require('./routes/comment'));
 
 app.listen(PORT,()=>{
     console.log("Server Running on port "+PORT )
