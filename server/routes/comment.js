@@ -18,7 +18,7 @@ router.get('/comments',(req,res)=>{
 
 router.post('/new-comment',(req,res)=>{
     const {body,post} = req.body;
-    console.log(body,post)
+    
     if ( !body   ){
         res.json(  {err:'No body'})
     }
@@ -34,7 +34,15 @@ router.post('/new-comment',(req,res)=>{
             })
             comment.save()
             .then(()=>{
-             res.json(  {msg:'Comment Saved'})
+                
+                Post.findByIdAndUpdate({_id : post.id},{comments:post_found.comments+1}).then(()=>{
+                    console.log(post_found)
+                    res.json({msg:'Comment Saved'})
+                }).catch((err)=>{
+                    res.json({err:'Error'})
+                })
+
+                
             })
             .catch((err)=>{
                 console.log(err)

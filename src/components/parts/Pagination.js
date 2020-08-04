@@ -1,13 +1,23 @@
-import React from 'react';
+import React, { useState } from 'react';
 
-const Pagination = () => {
+const Pagination = ({postsPerPage,totalPosts,paginate,indexOfFirstPost,currentPage}) => {
+   
+    const pageNumbers = []
+    for (let i=1;i<=Math.ceil(totalPosts/postsPerPage);i++ ){
+        pageNumbers.push(i)
+    }
     return (
         <div>
             <div className="pagination-box">
                 <ul className="pagination-list">
-                    <li><a href="#" className="active">1</a></li>
-                    <li><a href="#">2</a></li>
-                    <li><a href="#">Next Page <i className="fa fa-angle-right"></i></a></li>
+                {
+                        pageNumbers.map(number=>(
+                            <li className="active" key={number}>
+                                <a  onClick={()=>{ paginate(number)}}  className={currentPage===number? 'active':''}>{number}</a>
+                            </li>
+                        ))
+                    }
+                   
                 </ul>
             </div>
             

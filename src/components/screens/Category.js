@@ -14,13 +14,13 @@ const Category = () => {
         <Header />
         <Navbar />
         <Breadcrumb/>
-        <section class="blog-section">
-            <div class="container">
-                <div class="row">
-                    <div class="col-lg-8">
+        <section className="blog-section">
+            <div className="container">
+                <div className="row">
+                    <div className="col-lg-8">
                         <Posts/>
                     </div>
-                    <div class="col-lg-4">
+                    <div className="col-lg-4">
                         <Sidebar/>
                     </div>
                 </div>

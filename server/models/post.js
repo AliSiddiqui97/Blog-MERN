@@ -27,6 +27,15 @@ const postSchema = mongoose.Schema({
         type: ObjectId,
         ref:'Category'
     },
+    author:{
+        type: ObjectId,
+        ref:'Author'
+    },
+    comments:{
+        type: Number,
+        default:0
+    }
+
 },{timestamps:true});
 
 
