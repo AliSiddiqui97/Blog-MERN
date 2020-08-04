@@ -21,7 +21,7 @@ const PostItems = ({postData}) => {
 						<li><a href="#">{data.comments} comments</a></li>
 						<li>by <a href="#">{data.author.name}</a></li>
 					</ul>
-					<p >{data.description}</p>
+					<p >{data.description.slice(0, 200)}...</p>
 				</div>
 			</div>
 			</div>
