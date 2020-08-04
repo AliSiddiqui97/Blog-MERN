@@ -1,7 +1,7 @@
 import React from 'react';
 
 const PostItems = ({postData}) => {
-	console.log(postData)
+	
     return (
 		<div>
 		{postData.map((data) => (

@@ -21,9 +21,7 @@ const navbar = () => {
                             <li className="drop-link">
 								<Link  to='/category'>All Posts </Link>
 							</li>
-							<li className="drop-link">
-								<Link to="/single">Category Name </Link>
-							</li>
+							
 							
 							<li><Link to="/">Contacts</Link></li>
 						</ul>
